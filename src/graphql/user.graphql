@@ -1,0 +1,22 @@
+query getUsers($search: String, $skip: Int, $take: Int) {
+   users (search: $search, skip: $skip, take: $take){
+     id,
+     name,
+     email,
+     role,
+     todos {
+       id,
+       title,
+       content,
+     }
+   }
+}
+
+query getUser($userId: Int!) {
+  user(id: $userId) {
+    id,
+    name,
+    email,
+    role
+  }
+}

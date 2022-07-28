@@ -1,0 +1,37 @@
+mutation createAcronym($acronymForm: String!, $fullForm: String!) {
+  post(acronym_form: $acronymForm, full_form: $fullForm) {
+    id,
+    acronym_form,
+    full_form,
+  }
+}
+
+mutation updateAcronym($acronymForm: String!, $fullForm: String!, $patchId: Int!) {
+  patch(acronym_form: $acronymForm, full_form: $fullForm, id: $patchId) {
+    id,
+    acronym_form,
+    full_form,
+  }
+}
+
+mutation deleteAcronym($deleteId: Int!) {
+  delete(id: $deleteId) {
+    id
+  }
+}
+
+query getAcronym($acronymId: Int!) {
+  acronym(id: $acronymId) {
+    id,
+    acronym_form,
+    full_form
+  }
+}
+
+query getAcronyms($search: String, $skip: Int, $take: Int) {
+  acronyms(search: $search, skip: $skip, take: $take) {
+    id,
+    acronym_form,
+    full_form
+  }
+}
